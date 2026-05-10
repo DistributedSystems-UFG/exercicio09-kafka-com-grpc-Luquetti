@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+service TemperaturaService {
+  rpc GetUltimaMedia (Empty) returns (MediaTemperatura);
+  rpc GetHistorico (Empty) returns (ListaMedias);
+}
+
+message Empty {}
+
+message MediaTemperatura {
+  string timestamp = 1;
+  float media = 2;
+  int32 total_leituras = 3;
+}
+
+message ListaMedias {
+  repeated MediaTemperatura medias = 1;
+}
